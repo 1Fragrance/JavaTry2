@@ -1,5 +1,7 @@
 package com.company;
-import com.company.models.MatrixModel;
+
+import common.models.MatrixModel;
+import common.models.RequestModel;
 
 import java.io.*;
 import java.net.*;
@@ -44,12 +46,14 @@ public class Main {
                                 System.out.println("Input value for [" + i + "][" + j + "]:");
                                 input = stdin.readLine();
                             } while (!isNumeric(input));
-                            matrix.setValue(i, j, Integer.parseInt(input));
+                            matrix.setValue(i, j, Double.parseDouble(input));
                         }
                     }
 
                     printMatrix(matrix);
-                    oos.writeObject(matrix);
+
+                    RequestModel request = new RequestModel(matrix);
+                    oos.writeObject(request);
 
                     System.out.println("~Determinant~: " + ois.readObject());
                     System.out.println("~Press any key to return~");

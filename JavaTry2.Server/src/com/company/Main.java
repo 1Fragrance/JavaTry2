@@ -1,6 +1,9 @@
 package com.company;
-import com.company.enums.Operation;
-import com.company.models.*;
+
+import common.DeterminantCalc;
+import common.enums.Operation;
+import common.models.RequestModel;
+import common.models.MatrixModel;
 
 import java.io.*;
 import java.net.*;
@@ -31,9 +34,11 @@ public class Main {
             {
                 System.out.println("new request from " + clientIp);
 
-                String response = "1";
-                System.out.println("server response: '" + response + "' to the" + clientIp);
+                String response = Double.toString(calculateDeterminant(request.getMatrix()));
+                System.out.println("server response: '" + response + "' to the " + clientIp);
                 ous.writeObject(response);
+
+                request = (RequestModel) ois.readObject();
             }
 
             System.out.println(clientIp + " disconnected");
@@ -59,6 +64,12 @@ public class Main {
                 e.printStackTrace();
             }
         }
+    }
+
+    private static double calculateDeterminant(MatrixModel matrix) {
+        DeterminantCalc calc = new DeterminantCalc();
+
+        return calc.getDeterminant(matrix.getValues());
     }
 }
 

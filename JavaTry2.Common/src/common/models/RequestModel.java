@@ -1,6 +1,6 @@
-package models;
+package common.models;
 
-import enums.Operation;
+import common.enums.Operation;
 
 import java.io.Serializable;
 
@@ -16,5 +16,13 @@ public class RequestModel implements Serializable {
     public RequestModel() {
         operation = Operation.Exit;
         matrix = null;
+    }
+
+    public Operation getOperation() {
+        return operation;
+    }
+
+    public MatrixModel getMatrix() {
+        return matrix;
     }
 }

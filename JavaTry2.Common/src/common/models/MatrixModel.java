@@ -1,25 +1,29 @@
-package com.company.models;
+package common.models;
 
 import java.io.Serializable;
 
 public class MatrixModel implements Serializable {
     private final int size;
-    private final int[][] values;
+    private final double[][] values;
 
     public MatrixModel(int size) {
         this.size = size;
-        values = new int[size][size];
+        values = new double[size][size];
     }
 
     public int getSize() {
         return this.size;
     }
 
-    public int getValue(int i, int j) {
+    public double getValue(int i, int j) {
         return this.values[i][j];
     }
 
-    public void setValue(int i, int j, int value) {
+    public double[][] getValues() {
+        return this.values;
+    }
+
+    public void setValue(int i, int j, double value) {
         values[i][j] = value;
     }
 }
