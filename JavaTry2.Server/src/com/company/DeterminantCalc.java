@@ -1,4 +1,4 @@
-package common;
+package com.company;
 
 
 public class DeterminantCalc {

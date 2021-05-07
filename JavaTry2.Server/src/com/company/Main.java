@@ -1,6 +1,5 @@
 package com.company;
 
-import common.DeterminantCalc;
 import common.enums.Operation;
 import common.models.RequestModel;
 import common.models.MatrixModel;
